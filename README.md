@@ -167,4 +167,11 @@ MIT
 # Rendu de TP par Léo Gaisne
 **URL WebApp :** https://tpcloud26.oa.r.appspot.com/
 
-![Graphe de Concurrence](concChart.png)
+D'après les résultats des tests de performance fournis, TinyInsta ne s'adapte pas efficacement à l'augmentation de la charge. Même si Google Cloud peut provisionner des instances supplémentaires, les performances de l'application se dégradent considérablement sous la pression.  
+
+![Évolutivité de la charge](concChart.png)
+Les temps de réponse restent stables lorsque le trafic est faible, mais atteignent un « point de rupture » à partir de 50 utilisateurs.  À 1 000 utilisateurs, le délai de 8 secondes constitue un échec pour un réseau social fonctionnel.  On peut en conclure que l'application est limitée par sa capacité à gérer des volumes élevés de requêtes simultanées.
+![ Évolutivité des données](fanoutChart.png)
+Les performances se détériorent considérablement lorsque le nombre d'abonnés passe de 20 à 60.  Cela illustre l'effet « Fan-out », où l'application peine à agréger en temps réel les publications provenant de nombreuses sources.  On constate que la conception minimaliste fonctionne pour les petits ensembles de données, mais échoue à mesure que le graphe social se densifie.
+
+Le système n'est pas évolutif (ne scale pas). Pour y remédier, il faudrait mettre en place des chronologies précalculées ou une couche de mise en cache plutôt que de récupérer toutes les données du Datastore à chaque requête.  
