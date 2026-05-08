@@ -162,8 +162,6 @@ See `NOTES.md` for a concise explanation of Datastore's partitioning (range part
 
 ## License
 MIT
-
-```
 ---
 
 # Rendu de TP par Léo Gaisne
