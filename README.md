@@ -167,4 +167,4 @@ MIT
 # Rendu de TP par Léo Gaisne
 **URL WebApp :** https://tpcloud26.oa.r.appspot.com/
 
-![Graphe de Concurrence](Temps Moyen par requête.png)
+![Graphe de Concurrence](concChart.png)
